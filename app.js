@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
 const data = require('./data.json');
+
+app.use(cors());
 
 app.get('/peap', (req, res) => {
   res.json(data);
