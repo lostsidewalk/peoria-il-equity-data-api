@@ -3,7 +3,7 @@
   List of companies from Peoria, Illinois owned by: </br></br> - Women </br> - African americans </br> - Asians </br> - Hispanics </br> - Veterans </br></br> Data is available in JSON.
 </br>
 
-### [API Documentation](https://github.com/bmacarini/pied-documentation)
+### [API Documentation](https://bmacarini.github.io/pied-documentation/)
 
 ### [Live server](https://peoria-il-equity-data-api.onrender.com/peap)
 
