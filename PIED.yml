@@ -1,0 +1,167 @@
+openapi: '3.0.2'
+
+info:
+  title: Peoria Il Equity Data API
+  description: 'List of companies from Peoria, Illinois owned by: </br></br> - Women </br> - African americans </br> - Asians </br> - Hispanics </br> - Veterans </br></br> Data is available in JSON.'
+  version: '1.0'
+
+servers:
+  - url: https://peoria-il-equity-data-api.onrender.com
+
+paths:
+  /peap:
+    get:
+      tags:
+        - "Companies data"
+      summary: 'List of companies'
+      operationId: CompaniesData
+      responses:
+        '200':
+          description: Successful responses
+          content:
+            aplication/json:
+              schema:
+                $ref: '#/components/schemas/200'
+
+        '404':
+          description: Database not found
+          content:
+            text/plain:
+              schema:
+                title: List of companies not found
+                type: string
+                example: Database not found
+
+tags:
+  - name: Companies data
+    description: Get Peoria Illinois companies details.
+
+externalDocs:
+  description: Github
+  url: https://github.com/lostsidewalk/peoria-il-equity-data-api
+
+components:
+  schemas:
+    200:
+      title: Successful responses
+      type: object
+      properties:
+        
+        business_description:
+          $ref: '#/components/schemas/business_description'
+        certification_information:
+          $ref: '#/components/schemas/certification_information'
+        contact:
+          $ref: '#/components/schemas/contact'
+        email:
+          $ref: '#/components/schemas/email'
+        fax:
+          $ref: '#/components/schemas/fax'
+        location:
+          $ref: '#/components/schemas/location'
+        name:
+          $ref: '#/components/schemas/name'
+        owner_african_american:
+          $ref: '#/components/schemas/owner_african_american'
+        owner_asian:
+          $ref: '#/components/schemas/owner_asian'
+        owner_female:
+          $ref: '#/components/schemas/owner_female'
+        owner_hispanic:
+          $ref: '#/components/schemas/owner_hispanic'
+        owner_veteran:
+          $ref: '#/components/schemas/owner_veteran'
+        ownership_text:
+          $ref: '#/components/schemas/ownership_text'
+        phone:
+          $ref: '#/components/schemas/phone'
+        website:
+          $ref: '#/components/schemas/website'
+        page_id:
+          $ref: '#/components/schemas/page_id'
+        url:
+          $ref: '#/components/schemas/url'
+    
+    business_description:
+      type: object
+      example: 'Specialty Colombian coffee, growers, importers, sellers: From Farm to Cup.'
+    
+    certification_information:
+      type: object
+      properties:
+        location:
+          type: string
+          description: Institute where company get the certification_information
+          example: Decatur
+        name:
+          type: string
+          description: Institute name
+          example: WBE certification
+        expiration:
+          type: string
+          description: Certification expiration date
+          example: August 24th, 2025
+    
+    contact:
+      type: string
+      example: Jane Doe
+
+    email:
+      type: string
+      example: janedoe@example.com
+
+    fax:
+      type: string
+      example: '9999999999'
+    
+    location:
+      type: object
+      example: [
+        [
+          'PO Box', 
+          'USPSBoxType'
+        ]
+      ]
+    
+    name:
+      type: string
+      example: Jane Doe Company
+
+    owner_african_american:
+      type: boolean
+    
+    owner_asian:
+      type: boolean
+      example: false
+      
+    owner_female:
+      type: boolean
+
+    owner_hispanic:
+      type: boolean
+      example: false
+
+    owner_veteran:
+      type: boolean
+      example: false
+
+    ownership_text:
+      type: string
+      example: 'African American Female'
+
+    phone:
+      type: string
+      example: '9999999999'
+
+    website:
+      type: string
+      example: 'http://www.janedoe.com'
+
+    page_id:
+      type: string
+      example: '0000'
+
+    url:
+      description: 'Data from https://www.eprismsoft.com/index'
+      type: string
+      example: 'https://www.eprismsoft.com/business/show?seq=0000'
